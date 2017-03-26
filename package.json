@@ -1,7 +1,7 @@
 {
-  "name": "musicfinder",
+  "name": "localbuzz",
   "version": "1.0.0",
-  "description": "find related artists using the spotify API",
+  "description": "find buzz about local businesses near you",
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js",
@@ -10,8 +10,7 @@
   },
   "keywords": [
     "angular",
-    "spotify",
-    "music"
+    "fb"
   ],
   "author": "Julia Aspinall",
   "license": "MIT",
@@ -19,7 +18,6 @@
     "angular": "^1.6.1",
     "angular-animate": "^1.6.1",
     "angular-aria": "^1.6.1",
-    "angular-material": "^1.1.3",
     "angular-route": "^1.6.1",
     "express": "^4.14.1"
   },

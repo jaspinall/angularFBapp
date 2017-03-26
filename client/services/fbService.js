@@ -17,7 +17,7 @@ function fbService($q, $window) {
       });
       FB.api(urlString, 'get', { accessToken }, function(res) {
         if (!res || res.error) {
-          deferred.reject('error occurred')
+          deferred.reject(res.error)
         } else {
           deferred.resolve(res)
         }

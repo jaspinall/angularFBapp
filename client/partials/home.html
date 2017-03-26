@@ -8,7 +8,7 @@
 </form>
 
 
-<table class="businessTable table table-striped table-bordered table-hover" ng-show="showResults">
+<table class="businessTable table table-striped table-bordered table-hover" ng-if="results.length">
   <th>Name</th>
   <th>Location</th>
   <th>Rating</th>
@@ -19,4 +19,4 @@
     <td class="text-left">{{business.overall_star_rating}}</td>
     <td><button id={{business.id}} ng-click="seeDetails(business.id)">Details</button></td>
   </tr>
-</section>
+</table>

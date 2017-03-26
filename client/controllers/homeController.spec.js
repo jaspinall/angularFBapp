@@ -16,9 +16,8 @@ describe('HomeController', function() {
   });
 
   it('should store empty values before any search is conducted', function() {
-    expect($scope.featuredArtist).toBe('');
-    expect($scope.relatedArtists).toBe('');
     expect($scope.searchVal).toBe('');
+    expect($scope.showResults).toBe(false);
   });
 
 });

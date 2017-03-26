@@ -5,7 +5,4 @@ angular
 function detailsController($scope, FBService) {
   $scope.demo = '';
   $scope.business = FBService.getBusiness();
-  $scope.log = () => {
-    console.log($scope.business)
-  }
 }

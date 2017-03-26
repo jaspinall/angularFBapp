@@ -13,7 +13,24 @@ function homeController($scope, $location, FBService, UserService) {
   $scope.results = FBService.getResults();
   $scope.showResults = false;
   $scope.getGeo = () => {
-    let coords = UserService.getPosition();
+    coords = UserService.getPosition();
+    if (!coords.latitude) {
+      UserService.getCurrentPosition()
+        .then((res) => {
+          UserService.setPosition(res);
+          coords = UserService.getPosition();
+          getFBData();
+        })
+    } else {
+      getFBData();
+    }
+  };
+  $scope.seeDetails = (id) => {
+    FBService.setBusiness(id);
+    $location.path('/details');
+  },
+  coords = {},
+  getFBData = () => {
     FBService.getFBEvents(coords.latitude, coords.longitude, $scope.searchVal)
       .then((res) => {
         if (res.data) {
@@ -22,9 +39,6 @@ function homeController($scope, $location, FBService, UserService) {
           $scope.showResults = true;
         }
       })
-  };
-  $scope.seeDetails = (id) => {
-    FBService.setBusiness(id);
-    $location.path('/details');
-  }
+      .catch(err => console.log(err))
+    }
 }
