@@ -1,0 +1,22 @@
+<h1>Local Buzz</h1>
+
+<h3>Discover what people are saying about places near you</h3>
+
+<form ng-submit="getGeo()">
+    <input type="text" ng-model="searchVal"></input>
+  <button type="submit">Search</button>
+</form>
+
+
+<table class="businessTable table table-striped table-bordered table-hover" ng-show="showResults">
+  <th>Name</th>
+  <th>Location</th>
+  <th>Rating</th>
+  <th>Details</th>
+  <tr ng-repeat="business in results"  class="businessRow">
+    <td class="text-left">{{business.name}}</td>
+    <td class="text-left">{{business.location.city}}</td>
+    <td class="text-left">{{business.overall_star_rating}}</td>
+    <td><button id={{business.id}} ng-click="seeDetails(business.id)">Details</button></td>
+  </tr>
+</section>
