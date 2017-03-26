@@ -13,15 +13,17 @@ function fbService($q, $window) {
       FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
           accessToken = response.authResponse.accessToken;
+          FB.api(urlString, 'get', { accessToken }, function(res) {
+            if (!res || res.error) {
+              deferred.reject(res.error)
+            } else {
+              deferred.resolve(res)
+            }
+          })
+        } else {
+          console.log('problem accessing auth token')
         }
       });
-      FB.api(urlString, 'get', { accessToken }, function(res) {
-        if (!res || res.error) {
-          deferred.reject(res.error)
-        } else {
-          deferred.resolve(res)
-        }
-      })
       return deferred.promise;
     },
     getResults: () => {

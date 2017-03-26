@@ -33,3 +33,21 @@ body {
   height: 50px;
   font-size: 1.1em;
 }
+.logOut {
+  padding-top: 5px;
+  margin-left: 15px;
+}
+.searchForm button {
+  margin-top: 20px;
+}
+.businessDetails {
+  text-align: center;
+}
+.businessDetails .imgDiv {
+  width: 50px;
+  margin: auto;
+}
+.businessDetails a {
+  margin-top: 20px!important;
+  font-size: 1.1em;
+}

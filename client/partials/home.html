@@ -1,9 +1,12 @@
 <navigation></navigation>
 
-<div class="container">
-  <form ng-submit="getGeo()">
-      <input type="text" ng-model="searchVal"></input>
-    <button type="submit">Search</button>
+<div class="container home">
+
+  <form class="searchForm well" ng-submit="getGeo()">
+    <div class="searchForm form-group">
+      <input type="text" class="form-control input-lg" ng-model="searchVal" placeholder="search for something (coffee, wine...)">
+      <button type="submit" class="btn btn-default">Search</button>
+    </div>
   </form>
 
 
@@ -18,7 +21,7 @@
       <td class="text-left">{{business.name}}</td>
       <td class="text-left">{{business.location.city}}</td>
       <td class="text-left">{{business.overall_star_rating}}</td>
-      <td><button id={{business.id}} ng-click="seeDetails(business.id)">Details</button></td>
+      <td><button class="btn btn-default" id={{business.id}} ng-click="seeDetails(business.id)">Details</button></td>
     </tr>
   </table>
 </div>
