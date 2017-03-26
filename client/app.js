@@ -6,7 +6,13 @@ const app = angular
     'App.DetailsController',
     'App.FBService',
     'App.UserService'
-  ]);
+  ])
+  .directive('navigation', function() {
+    return {
+      restrict: 'E',
+      templateUrl: '../partials/navigation.html'
+    };
+  });
 
 app.run(['$rootScope', '$window',
 

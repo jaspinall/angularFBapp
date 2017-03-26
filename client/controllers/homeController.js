@@ -1,17 +1,16 @@
 angular
   .module('App.HomeController', ['ngRoute', 'App.FBService', 'App.UserService'])
   .controller('HomeController', ['$scope', '$location', 'FBService', 'UserService', homeController])
-  .directive('business', function() {
-    return {
-      restrict: 'E',
-      templateUrl: '../partials/business.html'
-    };
-});
 
 function homeController($scope, $location, FBService, UserService) {
+  $scope.name = UserService.getUser().name;
   $scope.searchVal = '';
   $scope.results = FBService.getResults();
   $scope.showResults = false;
+  $scope.logOut = () => {
+    UserService.logOut()
+      .then((res) => $location.path('/'));
+  }
   $scope.getGeo = () => {
     coords = UserService.getPosition();
     if (!coords.latitude) {

@@ -43,8 +43,23 @@ function userService($q, $window) {
     getPosition: () => {
       return coords;
     },
-    setUser: (user) => {
-      user = user;
+    getUser: () => {
+      return user;
+    },
+    setUser: (res) => {
+      user = res;
+    },
+    logOut: () => {
+      var deferred = $q.defer();
+      FB.logout(function(res) {
+        if (!res) {
+          deferred.reject('error occurred')
+        } else {
+          user = {};
+          deferred.resolve(res)
+        }
+      });
+      return deferred.promise;
     }
   })
 }

@@ -1,15 +1,19 @@
-<h1>{{business.name}}</h1>
+<navigation></navigation>
 
-<img src={{business.picture.data.url}} />
-<div>Star Rating: {{business.overall_star_rating}}</div>
-<a ng-href="/#!/home">Back</a>
+<div class="container">
+  <h1>{{business.name}}</h1>
 
-<table class="details table table-striped table-bordered table-hover">
-  <th>Name</th>
-  <th>Date</th>
-  <th>Message</th>
-  <tr ng-repeat="post in business.feed.data"  class="businessRow">
-    <td class="text-left">{{post.from.name}}</td>
-    <td class="text-left">{{post.updated_time | date : "shortDate" }}</td>
-    <td class="text-left">{{post.message}}</td>
-</table>
+  <img src={{business.picture.data.url}} />
+  <div>Star Rating: {{business.overall_star_rating}}</div>
+  <a ng-href="/#!/home">Back</a>
+
+  <table class="details table table-striped table-bordered table-hover">
+    <th>Name</th>
+    <th>Date</th>
+    <th>Message</th>
+    <tr ng-repeat="post in business.feed.data"  class="businessRow">
+      <td class="text-left">{{post.from.name}}</td>
+      <td class="text-left">{{post.updated_time | date : "shortDate" }}</td>
+      <td class="text-left">{{post.message}}</td>
+  </table>
+</container>
