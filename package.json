@@ -4,7 +4,7 @@
   "description": "find buzz about local businesses near you",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "test": "karma start",
     "build": "gulp"
   },
